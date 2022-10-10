@@ -8,7 +8,7 @@ authors = ["aetienne-web-atrio <adrien.etienne@web-atrio.com>"]
 python = "^3.9"
 Flask = "^2.2.2"
 redis = "^4.3.4"
-uwsgi = "^2.0.20"
+uWSGI = "^2.0.20"
 
 [tool.poetry.dev-dependencies]
 

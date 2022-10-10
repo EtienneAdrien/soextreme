@@ -10,7 +10,8 @@ def get_hit_count():
 @app.route('/')
 def hello():
     get_hit_count()
-    return "Hello World!"
+    return "Hello Adrien!"
+
 
 
 if __name__ == '__main__':
