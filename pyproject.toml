@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "so_extreme"
+version = "0.1.0"
+description = ""
+authors = ["aetienne-web-atrio <adrien.etienne@web-atrio.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.2.2"
+redis = "^4.3.4"
+uwsgi = "^2.0.20"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
