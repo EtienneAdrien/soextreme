@@ -1,18 +1,16 @@
-from flask import Flask
+from typing import Union
 
-app = Flask(__name__)
+from fastapi import FastAPI
 
-
-def get_hit_count():
-    print("azeaaez")
+app = FastAPI()
 
 
-@app.route('/')
-def hello():
-    get_hit_count()
-    return "Hello Adrien!"
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
 
 
+@app.get("/items/{item_id}")
+async def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')

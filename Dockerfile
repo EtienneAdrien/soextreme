@@ -13,6 +13,7 @@ COPY poetry.lock pyproject.toml /app/
 
 RUN poetry install --no-interaction --no-ansi
 
-EXPOSE 5000
-COPY . .
-CMD [ "uwsgi", "--ini", "app.ini" ]
+EXPOSE 80
+COPY ./app /app/app
+
+CMD ["uvicorn", "app.app:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "80", "--reload", "--reload-dir", "/app"]
