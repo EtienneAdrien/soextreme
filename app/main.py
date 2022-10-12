@@ -6,9 +6,6 @@ from fastapi import FastAPI
 from app.utils.database.base import Base
 from app.utils.database.connection import engine
 
-from app.features.models import imports
-imports()
-
 metadata = Base.metadata
 metadata.reflect(bind=engine)
 metadata.create_all(bind=engine)

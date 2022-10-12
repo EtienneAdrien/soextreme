@@ -1,2 +1,9 @@
-def imports():
-    from app.features.activity.models.activity import ActivityModel
+from app.features.activity.models.activity import ActivityModel
+from app.features.address.models.address import AddressModel
+from app.features.comment.models.comment import CommentModel
+from app.features.reservation.models.reservation import ReservationModel
+from app.features.tag.models.tag import TagModel
+from app.features.time_rule.models.rule import RuleModel
+from app.features.time_rule.models.time_rule import TimeRuleModel
+from app.features.user.models.company import CompanyModel
+from app.features.user.models.user import UserModel
