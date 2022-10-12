@@ -1,33 +1,35 @@
-version: "3.9"
+version: "3.3"
 services:
   web:
     build: .
+    ports:
+      - "8888:80"
     volumes:
       - "./:/app"
-    labels:
-      - "traefik.http.routers.fastapi.rule=Host(`fastapi.localhost`)"
+#    labels:
+#      - "traefik.http.routers.fastapi.rule=Host(`fastapi.localhost`)"
 
-  reverse-proxy:
-    # The official v2 Traefik docker image
-    image: traefik:v2.9
-    # Enables the web UI and tells Traefik to listen to docker
-    command: --api.insecure=true --providers.docker
-    ports:
-      # The HTTP port
-      - "80:80"
-      # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
-    volumes:
-      # So that Traefik can listen to the Docker events
-      - /var/run/docker.sock:/var/run/docker.sock
+#  reverse-proxy:
+#    # The official v2 Traefik docker image
+#    image: traefik:v2.9
+#    # Enables the web UI and tells Traefik to listen to docker
+#    command: --api.insecure=true --providers.docker
+#    ports:
+#      # The HTTP port
+#      - "8888:80"
+#      # The Web UI (enabled by --api.insecure=true)
+#      - "8080:8080"
+#    volumes:
+#      # So that Traefik can listen to the Docker events
+#      - /var/run/docker.sock:/var/run/docker.sock
 
 
-  redis:
-    image: "rabbitmq:3-management-alpine"
-    container_name: "rabbit-mq"
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+#  redis:
+#    image: "rabbitmq:3-management-alpine"
+#    container_name: "rabbit-mq"
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
 
   postgres:
     image: postgres
