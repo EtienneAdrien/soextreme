@@ -17,7 +17,7 @@ services:
       POSTGRES_USER: "postgres"
       POSTGRES_DB: "soextreme"
     volumes:
-      - "./db:/var/lib/postgresql/data"
+      - "~/volumes/db:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
     healthcheck:
@@ -25,6 +25,14 @@ services:
       interval: 1s
       timeout: 1s
       retries: 100
+
+  front:
+    build: ./front
+    ports:
+      - "8889:80"
+      - "8890:8080"
+    volumes:
+      - ./front:/app
 #    labels:
 
 #      - "traefik.http.routers.fastapi.rule=Host(`fastapi.localhost`)"
