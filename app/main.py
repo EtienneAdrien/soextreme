@@ -3,6 +3,7 @@ from typing import Union
 import uvicorn
 from fastapi import FastAPI
 
+from app.features.activity.routes import activity_router
 from app.utils.database.base import Base
 from app.utils.database.connection import engine
 
@@ -12,20 +13,7 @@ metadata.create_all(bind=engine)
 
 
 app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    with engine.connect() as conn:
-        res = conn.execute("SELECT 1;")
-        print(res.fetchone())
-
-    return {"Hello": "Adrien"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+app.include_router(activity_router)
 
 
 if __name__ == "__main__":

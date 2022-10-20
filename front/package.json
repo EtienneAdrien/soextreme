@@ -9,7 +9,7 @@
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev --port 80"
+    "dev": "quasar dev --port 80 --skip-plugins @vue/cli-plugin-eslint"
   },
   "dependencies": {
     "axios": "^0.21.1",

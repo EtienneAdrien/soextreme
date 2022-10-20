@@ -10,6 +10,7 @@ class ActivityModel(Base):
     __tablename__ = "activity"
 
     id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, nullable=False)
     description = Column(String, nullable=False)
     duration = Column(Interval, nullable=False)
     price = Column(Integer, nullable=False)
